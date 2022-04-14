@@ -1,4 +1,4 @@
-def imageName = 'mlabouardy/movies-marketplace'
+def imageName = 'nbaynham/movies-marketplace'
 
 node('workers'){
     stage('Checkout'){
