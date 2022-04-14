@@ -5,6 +5,7 @@ ENV CHROME_BIN=chromium
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y chromium
+RUN npm install eslint
 
 COPY package-lock.json .
 COPY package.json .
