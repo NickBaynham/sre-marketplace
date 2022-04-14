@@ -1,5 +1,4 @@
 def imageName = 'mlabouardy/movies-marketplace'
-def registry = 'https://registry.slowcoder.com'
 
 node('workers'){
     stage('Checkout'){
@@ -41,16 +40,6 @@ node('workers'){
 
     stage('Build'){
         docker.build(imageName, '--build-arg ENVIRONMENT=sandbox .')
-    }
-
-    stage('Push'){
-        docker.withRegistry(registry, 'registry') {
-            docker.image(imageName).push(commitID())
-
-            if (env.BRANCH_NAME == 'develop') {
-                docker.image(imageName).push('develop')
-            }
-        }
     }
 }
 
